@@ -1,0 +1,19 @@
+# Environment variables (NEVER commit secrets)
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.venv/
+*.egg-info/
+
+# Vector DB storage (local, regenerated via ingest.py)
+chroma_db/
+
+# OS/editor junk
+.DS_Store
+.vscode/
+.idea/
