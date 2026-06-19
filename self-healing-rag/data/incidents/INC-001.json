@@ -1,0 +1,15 @@
+{
+  "id": "INC-001",
+  "symptom": "Pod CrashLoopBackOff OOMKilled payment-service high memory usage after traffic spike",
+  "root_cause": "Memory limit too low (512Mi) for current traffic volume",
+  "fix_steps": [
+    "Increase memory limit from 512Mi to 1Gi in deployment manifest",
+    "kubectl apply -f payment-service-deployment.yaml",
+    "Verify pod stabilizes: kubectl get pods -w"
+  ],
+  "risk_level": "low",
+  "action_type": "restart_pod",
+  "rollback_plan": "kubectl rollout undo deployment/payment-service",
+  "outcome": "resolved",
+  "tags": ["kubernetes", "memory", "payment-service", "oom"]
+}

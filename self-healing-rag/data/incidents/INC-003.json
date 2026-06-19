@@ -1,0 +1,15 @@
+{
+  "id": "INC-003",
+  "symptom": "API gateway 502 errors, upstream service timeout on checkout-service",
+  "root_cause": "checkout-service pod count too low to handle current request volume",
+  "fix_steps": [
+    "Scale checkout-service deployment from 3 to 8 replicas",
+    "Monitor latency and error rate for 10 minutes",
+    "Scale back down once traffic normalizes"
+  ],
+  "risk_level": "low",
+  "action_type": "scale_up",
+  "rollback_plan": "kubectl scale deployment/checkout-service --replicas=3",
+  "outcome": "resolved",
+  "tags": ["kubernetes", "scaling", "checkout-service", "502"]
+}

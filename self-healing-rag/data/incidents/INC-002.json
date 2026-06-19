@@ -1,0 +1,15 @@
+{
+  "id": "INC-002",
+  "symptom": "Disk usage 95% on db-primary node, write errors in application logs",
+  "root_cause": "Old WAL/log files not being rotated, filling up disk",
+  "fix_steps": [
+    "Clear old WAL/log files older than retention window",
+    "Restart log rotation service",
+    "Monitor disk usage for 30 minutes to confirm stabilization"
+  ],
+  "risk_level": "medium",
+  "action_type": "clear_disk_space",
+  "rollback_plan": "No rollback needed (cleanup only); if instability occurs, failover to db-replica",
+  "outcome": "resolved",
+  "tags": ["database", "disk", "logs"]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "TEMPLATE-000",
+  "symptom": "Short, search-friendly description of the alert/error. Include service name, error type, and key symptoms. E.g. 'Pod CrashLoopBackOff OOMKilled payment-service high memory usage'",
+  "root_cause": "What actually caused it. E.g. 'Memory limit too low after traffic spike from marketing campaign'",
+  "fix_steps": [
+    "Step 1: e.g. Increase memory limit from 512Mi to 1Gi in deployment manifest",
+    "Step 2: e.g. Apply updated manifest with kubectl apply -f",
+    "Step 3: e.g. Verify pod stabilizes with kubectl get pods -w"
+  ],
+  "risk_level": "low",
+  "action_type": "restart_pod",
+  "rollback_plan": "kubectl rollout undo deployment/payment-service",
+  "outcome": "resolved",
+  "tags": ["kubernetes", "memory", "payment-service"]
+}
